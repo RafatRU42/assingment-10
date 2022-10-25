@@ -1,11 +1,29 @@
-import React from 'react';
+import { GoogleAuthProvider } from 'firebase/auth';
+import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { authContext } from '../AuthProvider/AuthProvider';
 import Header from '../Header/Header';
 
 const Login = () => {
+
+    const {loginWithGoogle} = useContext(authContext);
+    const googleProvider = new GoogleAuthProvider();
+
+
+    const handleGoogleSignIn = () =>{
+        loginWithGoogle(googleProvider)
+        .then(result =>{
+            const user = result.user;
+            console.log(user)
+        })
+        .catch(error =>{
+            console.log(error)
+        })
+    }
+
     return (
         <div>
 
@@ -13,7 +31,7 @@ const Login = () => {
 
 
             <div class="d-grid gap-2 col-6 mx-auto my-5">
-                <button className="btn btn-success p-3 fw-bold" type="button"><FaGoogle></FaGoogle> Login With Google</button>
+                <button onClick={handleGoogleSignIn} className="btn btn-success p-3 fw-bold" type="button"><FaGoogle></FaGoogle> Login With Google</button>
                 <button className="btn btn-dark p-3 fw-bold" type="button"><FaGithub></FaGithub> Login With Github</button>
             </div>
 
@@ -22,13 +40,13 @@ const Login = () => {
        <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
+                    <Form.Control type="email" name='email' placeholder="Enter Your Email" required />
                   
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
+                    <Form.Control type="password" name='password' placeholder="Enter Your Password" required />
                 </Form.Group>
 
                 <h5>Don't Have an Account? Please <Link to={'/register'}>Register</Link> </h5>
