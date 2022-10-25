@@ -9,7 +9,7 @@ import Header from '../Header/Header';
 
 const Login = () => {
 
-    const {loginWithGoogle} = useContext(authContext);
+    const {loginWithGoogle,loginWithPassword} = useContext(authContext);
     const googleProvider = new GoogleAuthProvider();
 
 
@@ -22,6 +22,18 @@ const Login = () => {
         .catch(error =>{
             console.log(error)
         })
+    }
+
+
+    const handleLoginWithPass = (event) =>{
+            event.preventDefault() 
+            const form = event.target;
+            const email = form.email.value;
+            const password = form.password.value;
+
+            loginWithPassword(email, password)
+            .then(result =>{})
+            .catch(error =>{console.log(error)})
     }
 
     return (
@@ -37,7 +49,7 @@ const Login = () => {
 
 
        <div className='w-50 mx-auto mt-5'>
-       <Form>
+       <Form onSubmit={handleLoginWithPass}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control type="email" name='email' placeholder="Enter Your Email" required />
