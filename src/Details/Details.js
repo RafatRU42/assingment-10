@@ -2,12 +2,14 @@ import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import Header from '../components/Header/Header';
 
 const Details = () => {
     const details = useLoaderData();
     console.log('details', details)
     return (
         <div>
+            <Header></Header>
             <h1>This is Details</h1>
             <Card style={{ width: '50rem' }}>
                 <Card.Img variant="top" src={details.image} />
