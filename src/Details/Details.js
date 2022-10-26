@@ -17,7 +17,7 @@ const Details = () => {
                         Some quick example text to build on the card title and make up the
                         bulk of the card's content.
                     </Card.Text>
-                    <Link to={''}><Button variant="primary">Get Premium</Button></Link>
+                    <Link to={`/courses/0${details.id}`}><Button variant="primary">Get Premium</Button></Link>
                 </Card.Body>
             </Card>
 
