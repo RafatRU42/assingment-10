@@ -2,6 +2,7 @@ import React from 'react';
 import './SingleCourse.css'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
 
 const SingleCourse = ({ course }) => {
     return (
@@ -13,7 +14,7 @@ const SingleCourse = ({ course }) => {
                     <Card.Text className='d-flex ms-1'>
                        {course.description}
                     </Card.Text>
-                    <Button variant="primary">Details</Button>
+                    <Link to={`/courses/${course.id}`}><Button variant="primary">Details</Button></Link>
                 </Card.Body>
             </Card>
         </div>
