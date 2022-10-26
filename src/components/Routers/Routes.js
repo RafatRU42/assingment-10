@@ -3,6 +3,7 @@ import Main from "../../Main/Main";
 import Blog from "../Blog/Blog";
 import Courses from "../Courses/Courses";
 import Home from "../Home/Home";
+import LeftSideNav from "../LeftSideNav/LeftSideNav";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
 
@@ -17,7 +18,8 @@ export const router = createBrowserRouter([
 {path: '/', element: <Main></Main>, children:[
 
    
-    {path:'courses', element: <Courses></Courses>, loader: () => fetch('http://localhost:5000/courses')}
+    {path:'courses', element: <Courses></Courses>, loader: () => fetch('http://localhost:5000/courses')},
+    // {path: 'courses', element: <LeftSideNav></LeftSideNav>, loader: () => fetch('http://localhost:5000/courses')}
 ]}
 ])
 

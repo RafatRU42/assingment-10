@@ -1,17 +1,27 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import SingleCourse from '../Course/SingleCourse';
+import LeftSideNav from '../LeftSideNav/LeftSideNav';
+import './Courses'
 
 const Courses = () => {
     const courses = useLoaderData();
     console.log(courses)
+
+    // {
+    //     courses.map(coursess => <LeftSideNav course = {coursess}></LeftSideNav>)
+    // }
     return (
-        <div>
-            <h2>This is Courses</h2>
-            <p>{courses.length}</p>
-            {
-                courses.map(course => <SingleCourse course = {course}></SingleCourse>)
+        <div className=''>
+            <h2>Here Are the Top Six Courses!!!</h2>
+           <div className='course'>
+            
+           {
+                courses.map(course => <SingleCourse course = {course}></SingleCourse>,courses.map(coursess=> <LeftSideNav course ={coursess}></LeftSideNav>))
             }
+
+          
+           </div>
         </div>
     );
 };

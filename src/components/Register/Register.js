@@ -7,7 +7,7 @@ import { authContext } from '../AuthProvider/AuthProvider';
 
 const Register = () => {
 
-    const {register} = useContext(authContext)
+    const {makeUserWithPassword} = useContext(authContext)
 
 
     const handleRegister = (event) =>{
@@ -19,9 +19,13 @@ const Register = () => {
         const photoURL = form.photoURL.value;
         console.log(email, password, name, photoURL)
 
-        register(email, password)
-        .then(result =>{})
-        .catch(error =>{})
+        makeUserWithPassword(email, password)
+        .then(result =>{
+            console.log(result)
+        })
+        .catch(error =>{
+            console.log('erorr',error)
+        })
     }
 
     return (

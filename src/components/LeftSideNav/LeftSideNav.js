@@ -1,9 +1,14 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
+import Courses from '../Courses/Courses';
 
-const LeftSideNav = () => {
+const LeftSideNav = ({course}) => {
+    // const course = useLoaderData();
+    // console.log('course',course)
     return (
         <div>
-            <h1>This is Left side Nav</h1>
+           <h3>The Courses!!!</h3>
+           <h4>{course?.name}</h4>
         </div>
     );
 };

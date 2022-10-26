@@ -10,9 +10,9 @@ const Main = () => {
     return (
         <div>
             <Header></Header>
-            <Container>
+            <Container className='bg-light'>
                 <Row>
-                    <Col lg='4' className=''>
+                    <Col lg='3' className=''>
                         <LeftSideNav></LeftSideNav>
                     </Col>
                     <Col>

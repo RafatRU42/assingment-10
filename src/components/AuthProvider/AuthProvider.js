@@ -20,7 +20,7 @@ const logOut = () =>{
 }
 
 
-const register = (email, password) =>{
+const makeUserWithPassword = (email, password) =>{
     return createUserWithEmailAndPassword(auth, email, password);
 }
 
@@ -44,7 +44,7 @@ useEffect(() =>{
 
 
 
-    const authInfo = {loginWithGoogle,logOut,user,register,loginWithPassword}
+    const authInfo = {loginWithGoogle,logOut,user,makeUserWithPassword,loginWithPassword}
     return (
         <authContext.Provider value={authInfo}>
             {children}
