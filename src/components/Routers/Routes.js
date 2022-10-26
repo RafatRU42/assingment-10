@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Details from "../../Details/Details";
 import Main from "../../Main/Main";
+import PrivateRoute from "../../PrivateRoute/PrivateRoute";
 import Blog from "../Blog/Blog";
 import Courses from "../Courses/Courses";
 import GetPremium from "../GetPremium/GetPremium";
@@ -16,7 +17,7 @@ export const router = createBrowserRouter([
 {path:'login', element:<Login></Login>},
 {path:'register', element: <Register></Register>},
 {path: '/courses/:id', element:<Details></Details> , loader: ({params}) =>fetch(`http://localhost:5000/courses/${params.id}`)},
-{path: '/courses/0:id', element:<GetPremium></GetPremium> , loader: ({params}) =>fetch(`http://localhost:5000/courses/0${params.id}`)},
+{path: '/courses/0:id', element:<PrivateRoute><GetPremium></GetPremium></PrivateRoute> , loader: ({params}) =>fetch(`http://localhost:5000/courses/0${params.id}`)},
 // {path: '/category/:id', element:<LeftSideNav></LeftSideNav>, loader: () =>fetch('http://localhost:5000/category')},
 
 

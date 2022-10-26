@@ -4,3 +4,13 @@
     color: white;
     font-weight: bold;
 }
+
+.imagee{
+    width: 50px;
+    border-radius: 50%;
+}
+.name{
+    margin-top: 25px;
+    margin-left: 25px;
+    color: aliceblue;
+}

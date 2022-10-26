@@ -14,6 +14,10 @@ const loginWithGoogle = (googleProvider) =>{
     return signInWithPopup(auth, googleProvider)
 }
 
+const loginWithGithub = (githubProvider) =>{
+    return signInWithPopup(auth, githubProvider)
+}
+
 
 const logOut = () =>{
     return signOut(auth)
@@ -44,7 +48,7 @@ useEffect(() =>{
 
 
 
-    const authInfo = {loginWithGoogle,logOut,user,makeUserWithPassword,loginWithPassword}
+    const authInfo = {loginWithGoogle,logOut,user,makeUserWithPassword,loginWithPassword,loginWithGithub}
     return (
         <authContext.Provider value={authInfo}>
             {children}

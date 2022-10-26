@@ -3,6 +3,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Header from '../components/Header/Header';
+import './Details.css'
 
 const Details = () => {
     const details = useLoaderData();
@@ -10,18 +11,19 @@ const Details = () => {
     return (
         <div>
             <Header></Header>
-            <h1>This is Details</h1>
-            <Card style={{ width: '50rem' }}>
+           <div className='cardd'>
+           <Card style={{ width: '50rem' }}>
                 <Card.Img variant="top" src={details.image} />
                 <Card.Body>
-                    <Card.Title>{details.name}</Card.Title>
+                    <Card.Title>{details.title}</Card.Title>
                     <Card.Text>
-                        Some quick example text to build on the card title and make up the
-                        bulk of the card's content.
+                   {details.description}
+
                     </Card.Text>
                     <Link to={`/courses/0${details.id}`}><Button variant="primary">Get Premium</Button></Link>
                 </Card.Body>
             </Card>
+           </div>
 
 
         </div>

@@ -1,13 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Header from '../Header/Header';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { authContext } from '../AuthProvider/AuthProvider';
 
 const Register = () => {
-
+    const [error, setError] = useState('')
     const {makeUserWithPassword} = useContext(authContext)
+    const location = useLocation();
+
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || '/';
 
 
     const handleRegister = (event) =>{
@@ -22,9 +26,14 @@ const Register = () => {
         makeUserWithPassword(email, password)
         .then(result =>{
             console.log(result)
+            navigate(from,{replace:true})
+            form.reset('')
         })
         .catch(error =>{
             console.log('erorr',error)
+            const errormes = error.message;
+            setError(errormes)
+            form.reset('')
         })
     }
 
@@ -58,7 +67,7 @@ const Register = () => {
                     <h5>Already Have an Account? Please <Link to={'/login'}>Login</Link> </h5>
 
                     <Form.Text className="text-muted d-block m-2">
-                        We'll never share your email with anyone else.
+                       <h5 className='text-danger'>{error}</h5>
                     </Form.Text>
                     <Button variant="primary" type="submit">
                         SignUp
