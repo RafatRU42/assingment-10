@@ -27,12 +27,12 @@ const Header = () => {
         <div>
             <Navbar  bg="info" variant="info">
                 <Container >
-                    <Navbar.Brand className='fw-bold text-white fs-2'><FaBookReader></FaBookReader> RM Learning Point</Navbar.Brand>
+                    <Navbar.Brand className='fw-bold text-white fs-2 titlee '><FaBookReader></FaBookReader> RM Learning Point</Navbar.Brand>
                     <div className ='name'>{user?.uid? <p>{user?.displayName}</p> : ""}</div>
 
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
-                        <Navbar.Text className='links m-3 text-white d-inline'>
+                        <Navbar.Text className='links m-3 text-white d-inline sm-block'>
                             <Link to={'/'}>Home</Link>
                             <Link to={'/courses'}>Courses</Link>
                             <Link to={'/Blog'}>Blog</Link>

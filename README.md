@@ -1,3 +1,38 @@
+
+* I used Bootstrap CSS framework for style.
+
+* I have set a home page where i describe about the Courses. 
+
+* I can not fix react to pdf requirement. I tried much but I become failure. Because it shown a error message. 
+
+* Blog section has been added. 
+
+* I can not understand the requirement of FAQ section. 
+
+* Get Premium Access is a private route. If you want to go to the get premium access router without login it will navigate you to the login route. 
+
+* Everything is nearly completed. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

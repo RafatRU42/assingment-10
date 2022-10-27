@@ -2,6 +2,7 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import SingleCourse from '../Course/SingleCourse';
 import LeftSideNav from '../LeftSideNav/LeftSideNav';
+import './Courses.css'
 import './Courses'
 
 const Courses = () => {
