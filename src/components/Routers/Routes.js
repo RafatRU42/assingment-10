@@ -16,15 +16,15 @@ export const router = createBrowserRouter([
 {path:'blog', element:<Blog></Blog>},
 {path:'login', element:<Login></Login>},
 {path:'register', element: <Register></Register>},
-{path: '/courses/:id', element:<Details></Details> , loader: ({params}) =>fetch(`http://localhost:5000/courses/${params.id}`)},
-{path: '/courses/0:id', element:<PrivateRoute><GetPremium></GetPremium></PrivateRoute> , loader: ({params}) =>fetch(`http://localhost:5000/courses/0${params.id}`)},
-// {path: '/category/:id', element:<LeftSideNav></LeftSideNav>, loader: () =>fetch('http://localhost:5000/category')},
+{path: '/courses/:id', element:<Details></Details> , loader: ({params}) =>fetch(`https://learning-point-server-delta.vercel.app/courses/${params.id}`)},
+{path: '/courses/0:id', element:<PrivateRoute><GetPremium></GetPremium></PrivateRoute> , loader: ({params}) =>fetch(`https://learning-point-server-delta.vercel.app/courses/0${params.id}`)},
+// {path: '/category/:id', element:<LeftSideNav></LeftSideNav>, loader: () =>fetch('https://learning-point-server-delta.vercel.app/category')},
 
 
 {path: '/', element: <Main></Main>, children:[
 
    
-    {path:'courses', element: <Courses></Courses>, loader: () => fetch('http://localhost:5000/courses')}
+    {path:'courses', element: <Courses></Courses>, loader: () => fetch('https://learning-point-server-delta.vercel.app/courses')}
 ]}
 ])
 
